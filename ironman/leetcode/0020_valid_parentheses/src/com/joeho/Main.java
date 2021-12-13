@@ -47,11 +47,12 @@ public class Main {
     }
     public static void main(String[] args) {
 	// write your code here
-        System.out.println("6: ] " + isValid("]"));
         System.out.println("1: () " + isValid("()"));
         System.out.println("2: ()[]{} " + isValid("()[]{}"));
         System.out.println("3: (] " + isValid("(]"));
         System.out.println("4: ([)] " + isValid("([)]"));
         System.out.println("5: {[]} " + isValid("{[]}"));
+        System.out.println("6: ] " + isValid("]"));
+
     }
 }
