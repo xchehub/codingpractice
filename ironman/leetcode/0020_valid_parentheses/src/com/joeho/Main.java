@@ -36,7 +36,7 @@ public class Main {
                     if (!stack.isEmpty() && symbolMap.get(stack.peek()) == c) {
                         stack.pop();
                     } else if (stack.isEmpty()) {
-                        return true;
+                        return false;
                     } else {
                         return false;
                     }
@@ -47,6 +47,7 @@ public class Main {
     }
     public static void main(String[] args) {
 	// write your code here
+        System.out.println("6: ] " + isValid("]"));
         System.out.println("1: () " + isValid("()"));
         System.out.println("2: ()[]{} " + isValid("()[]{}"));
         System.out.println("3: (] " + isValid("(]"));
