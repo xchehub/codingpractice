@@ -88,6 +88,11 @@ public class Main {
         System.out.println("Custom String value of Java Enum ColorWithToString.RED is " + ColorWithToString.RED);
         System.out.println("Custom String value of Enum in Java, ColorWithSpecificString.RED is "
                 + ColorWithSpecificString.RED.getCustomString());
+
+        for(Currency coin: Currency.values()) {
+            System.out.println("coin: " + coin);
+            System.out.println("coin color: " + coin.color());
+        }
     }
 
     private enum Color {
@@ -130,6 +135,60 @@ public class Main {
 
         public String getCustomString() {
             return custom;
+        }
+    }
+
+    public enum Currency {
+        PENNY(1) {
+            @Override
+            public String color() {
+                return "copper";
+            }
+        },
+        NICKLE(5) {
+            @Override
+            public String color() {
+                return "bronze";
+            }
+        },
+        DIME(10) {
+            @Override
+            public String color() {
+                return "silver";
+            }
+        },
+        QUARTER(25) {
+            @Override
+            public String color() {
+                return "silver";
+            }
+        };
+
+        private int value;
+
+        private Currency(int value) {
+            this.value = value;
+        }
+        public abstract String color();
+
+        @Override
+        public String toString() {
+            switch(this) {
+                case PENNY:
+                    System.out.println("Penny:" + value);
+                    break;
+                case NICKLE:
+                    System.out.println("Nickle: " + value);
+                    break;
+                case DIME:
+                    System.out.println("Dime: " + value);
+                    break;
+                case QUARTER:
+                    System.out.println("Quarter: " + value);
+                    break;
+            }
+
+            return super.toString();
         }
     }
 }
