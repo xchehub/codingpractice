@@ -1,7 +1,6 @@
 package com.joeho;
 
-import java.util.concurrent.Callable;
-
+import java.util.concurrent.*;
 
 public class Main {
     static long fibonacci(int n) {
@@ -11,14 +10,33 @@ public class Main {
         return fibonacci(n-1) + fibonacci(n-2);
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
 	// write your code here
-        var future =  Future.submit(() -> fibonacci(30));
-        System.out.println("Fibonacci 30 ...");
+        var future =  Future.submit(() -> fibonacci(5));
+        System.out.println("Fibonacci 5 ...");
         while (!future.isDone()) {
             System.out.println("Do your business");
         }
-        System.out.printf("The 30rd fibonacci: %d%n", future.get());
+        System.out.printf("The 5th fibonacci: %d%n", future.get());
+
+        System.out.println("Using FutureTask");
+
+        var futureTask = new FutureTask<>(() -> fibonacci(10));
+        new Thread(futureTask).start();
+        System.out.println("Fibonacci 10...");
+        while(!futureTask.isDone()) {
+            System.out.println("Do your business");
+        }
+        System.out.printf("10th fibonacci: %d%n", futureTask.get());
+
+        System.out.println("Using ExecutorService");
+        var service = Executors.newCachedThreadPool();
+        var future2 = service.submit(() -> fibonacci(15));
+        System.out.println("Fibonacci 15...");
+        while(!future2.isDone()) {
+            System.out.println("Do your business");
+        }
+        System.out.printf("15th fibonacci: %d%n", future2.get());
     }
 
 }
