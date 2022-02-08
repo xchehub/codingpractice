@@ -1,5 +1,7 @@
 package com.joeho;
 
+import java.util.Stack;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,6 +9,12 @@ public class Main {
         BinaryTree bt = BinaryTree.create();
         System.out.println("using recursion to print nodes of binary tree on InOrder.");
         bt.inOrder();
+
+        System.out.println(); // insert new line
+
+        // traversing binary tree on InOrder traversal without recursion
+        System.out.println("printing nodes of binary tree on InOrder using iteration");
+        bt.inOrderNoRecursion();
     }
 }
 
@@ -39,6 +47,22 @@ class BinaryTree {
         inOrder(node.left);
         System.out.print(node.data + " ");
         inOrder(node.right);
+    }
+
+    public void inOrderNoRecursion() {
+        Stack nodes = new Stack<>();
+        TreeNode current = root;
+
+        while(current != null || !nodes.isEmpty()) {
+            if (current != null) {
+                nodes.push(current);
+                current = current.left;
+            } else {
+                TreeNode node = (TreeNode) nodes.pop();
+                System.out.print(node.data + " ");
+                current = node.right;
+            }
+        }
     }
 
     public static BinaryTree create() {
