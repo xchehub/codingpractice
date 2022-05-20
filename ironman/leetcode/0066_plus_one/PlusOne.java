@@ -3,6 +3,11 @@ import java.util.Arrays;
 public class PlusOne {
     public static int[] plusOne(int[] digits) {
         // plus one
+        if(digits[digits.length - 1] < 9){
+            digits[digits.length - 1]++;
+            return digits;
+        }
+
         digits[digits.length-1] += 1;
         for (int i = digits.length-1; i > 0; i--) {
             if (digits[i] == 10) {
