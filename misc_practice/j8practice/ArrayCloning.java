@@ -17,6 +17,26 @@ public class ArrayCloning {
 
         String[] strArray = {"orange", "red", "green"};
         String[] copiedStrArray = Arrays.stream(strArray).toArray(String[]::new);
+        int[] original = { 10, 20, 30 };
+        int[] copy = new int[original.length];
+        System.arraycopy(original, 0, copy, 0, original.length);
         
+        System.out.println("Original: " + Arrays.toString(original));
+        System.out.println("Copy: " + Arrays.toString(copy));
+    
+        // 2d array 
+        int[][] source = {
+            {1, 2, 3, 4},
+            {5, 6},
+            {0, 2, 42, -4, 5},
+        };
+        int[][] destination = new int[source.length][];
+        for (int i =0; i < source.length; i++) {
+            destination[i] = new int[source[i].length];
+            for (int j = 0; j < destination[i].length; j++) {
+                destination[i][j] = source[i][j];
+            }
+        }
+        System.out.println(Arrays.deepToString(destination));
     }
 }

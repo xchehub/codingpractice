@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "misc_practice/codesignal",
         "misc_practice/ReverseString",
-        "misc_practice/codesignal"
+        "misc_practice/j8practice"
     ]
 }
