@@ -1,7 +1,8 @@
 {
     "java.project.sourcePaths": [
+        "misc_practice/j8practice",
         "misc_practice/codesignal",
         "misc_practice/ReverseString",
-        "misc_practice/j8practice"
+        "ironman/leetcode/0334_Increasing Triplet Subsequence"
     ]
 }
