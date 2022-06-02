@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,6 @@ public class TwoSum {
 
     public static void main(String[] args) {
         int[] result = twoSum(new int[]{2, 7, 11, 5}, 9);
-        System.out.println(result.toString());
+        System.out.println(Arrays.toString(result));
     }
 }
