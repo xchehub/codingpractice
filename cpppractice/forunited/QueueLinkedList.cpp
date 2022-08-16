@@ -46,33 +46,35 @@ void enqueue(int value) {
 
 //function to delete/remove element from queue
 void dequeue() {
-	if (isempty())
+	if (isempty()) {
 		cout << "Queue is empty\n";
-	else
-	//only one element/node in queue.
-	if (front == rear) {
-		free(front);
-		front = rear = NULL;
 	} else {
-		Node *ptr = front;
-		front = front->link;
-		free(ptr);
+		//only one element/node in queue.
+		if (front == rear) {
+			free(front);
+			front = rear = NULL;
+		} else {
+			Node *ptr = front;
+			front = front->link;
+			free(ptr);
+		}
 	}
 }
 
 //function to show the element at front
 void showfront() {
-	if (isempty())
+	if (isempty()) {
 		cout << "Queue is empty\n";
-	else
+	} else {
 		cout << "element at front is:" << front->data;
+	}
 }
 
 //function to display queue
 void displayQueue() {
-	if (isempty())
+	if (isempty()) {
 		cout << "Queue is empty\n";
-	else {
+	} else {
 		Node *ptr = front;
 		while (ptr != NULL) {
 			cout << ptr->data << " ";
